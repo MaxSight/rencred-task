@@ -1,6 +1,8 @@
 package com.rencred.driver;
 
 import com.rencred.pages.MainPage;
+import com.rencred.pages.cards.CardsPage;
+import com.rencred.pages.cards.QuestionnareForCardPage;
 import com.rencred.pages.deposits.DepositsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,6 +14,8 @@ public class ApplicationManager {
     WebDriver wd;
     private MainPage mainPage;
     private DepositsPage depositsPage;
+    private CardsPage cardsPage;
+    private QuestionnareForCardPage questionnareForCardPage;
 
     public void init(){
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\ChromeDriver\\chromedriver.exe");
@@ -24,6 +28,8 @@ public class ApplicationManager {
 
         mainPage = new MainPage(wd);
         depositsPage = new DepositsPage(wd);
+        cardsPage = new CardsPage(wd);
+        questionnareForCardPage = new QuestionnareForCardPage(wd);
     }
 
     public void stop() {
@@ -36,6 +42,14 @@ public class ApplicationManager {
 
     public DepositsPage depositPage() {
         return depositsPage;
+    }
+
+    public CardsPage cardsPage() {
+        return cardsPage;
+    }
+
+    public QuestionnareForCardPage questionnareForCardPage() {
+        return questionnareForCardPage;
     }
 
 }

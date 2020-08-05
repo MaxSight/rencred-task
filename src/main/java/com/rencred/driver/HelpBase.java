@@ -16,10 +16,6 @@ public class HelpBase {
         wd.findElement(locator).click();
     }
 
-    public void isDisplayedElement(By locator) {
-        wd.findElement(locator).isDisplayed();
-    }
-
     public WebElement blockElement(By locator) {
         return wd.findElement(locator);
     }
