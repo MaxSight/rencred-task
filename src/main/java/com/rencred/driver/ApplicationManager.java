@@ -1,8 +1,7 @@
 package com.rencred.driver;
 
-import com.rencred.pages.DepositPage;
 import com.rencred.pages.MainPage;
-import javafx.scene.control.CheckBox;
+import com.rencred.pages.deposits.DepositsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -12,7 +11,7 @@ public class ApplicationManager {
 
     WebDriver wd;
     private MainPage mainPage;
-    private DepositPage depositPage;
+    private DepositsPage depositsPage;
 
     public void init(){
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\ChromeDriver\\chromedriver.exe");
@@ -24,7 +23,7 @@ public class ApplicationManager {
         wd.manage().window().maximize();
 
         mainPage = new MainPage(wd);
-        depositPage = new DepositPage(wd);
+        depositsPage = new DepositsPage(wd);
     }
 
     public void stop() {
@@ -35,6 +34,8 @@ public class ApplicationManager {
         return mainPage;
     }
 
-    public DepositPage depositPage(){ return depositPage;}
+    public DepositsPage depositPage() {
+        return depositsPage;
+    }
 
 }

@@ -24,5 +24,13 @@ public class HelpBase {
         return wd.findElement(locator);
     }
 
+    public WebElement inputField(By locator) {
+        return wd.findElement(locator);
+    }
+
+    public WebElement sliderElement(By locator) {
+        return wd.findElement(locator);
+    }
+
 
 }

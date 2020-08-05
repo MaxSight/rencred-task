@@ -1,4 +1,13 @@
 package com.rencred.tests;
 
-public class SecondTask_Test {
+import com.rencred.driver.BaseTest;
+import org.testng.annotations.Test;
+
+public class SecondTask_Test extends BaseTest {
+
+    @Test
+    public void logic() {
+        app.mainPage().selectProductBlock("Карты");
+
+    }
 }
