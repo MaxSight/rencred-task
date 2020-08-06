@@ -1,9 +1,8 @@
 package com.rencred.pages;
 
 import com.rencred.driver.HelpBase;
-import org.openqa.selenium.By;
+import com.rencred.driver.allure.NamedBy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class MainPage extends HelpBase {
 
@@ -11,7 +10,7 @@ public class MainPage extends HelpBase {
         super(wd);
     }
 
-    public void selectProductBlock(String name){
-        clickElement(By.xpath("//div[@class='service__title' and .//div='" + name + "']"));
+    public void selectProductBlock(String name) {
+        clickElement(NamedBy.xpath("//div[@class='service__title' and .//div='" + name + "']").as("Выбираем продукт " + name + ""));
     }
 }

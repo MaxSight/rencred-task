@@ -1,7 +1,7 @@
 package com.rencred.pages.cards;
 
 import com.rencred.driver.HelpBase;
-import org.openqa.selenium.By;
+import com.rencred.driver.allure.NamedBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -12,23 +12,23 @@ public class QuestionnareForCardPage extends HelpBase {
     }
 
     public WebElement lastNameField() {
-        return inputField(By.cssSelector("[name='ClientLastName']"));
+        return inputField(NamedBy.css("[name='ClientLastName']").as("Поле Фамилия"));
     }
 
     public WebElement nameField() {
-        return inputField(By.cssSelector("[name='ClientName']"));
+        return inputField(NamedBy.css("[name='ClientName']").as("Поле Имя"));
     }
 
     public WebElement secondNameField() {
-        return inputField(By.cssSelector("[name='ClientSecondName']"));
+        return inputField(NamedBy.css("[name='ClientSecondName']").as("Поле Отчество"));
     }
 
     public WebElement mobilePhoneField() {
-        return inputField(By.cssSelector("[name='ClientMobilePhone']"));
+        return inputField(NamedBy.css("[name='ClientMobilePhone']").as("Поле Мобильный телефон"));
     }
 
     public WebElement emailField() {
-        return inputField(By.cssSelector("[name='AdditionalEmail']"));
+        return inputField(NamedBy.css("[name='AdditionalEmail']").as("Поле Email"));
     }
 
     public void chosePlaceForGetCard(String name) {
@@ -37,27 +37,29 @@ public class QuestionnareForCardPage extends HelpBase {
     }
 
     public WebElement questionBlock() {
-        return blockElement(By.cssSelector(".order-form__step"));
+        return blockElement(NamedBy.css(".order-form__step").as("Блок анкеты"));
     }
 
     public void selectNoSecondName() {
-        questionBlock().findElement(By.xpath("//label[contains(text(), 'отчества')]/div")).click();
+        questionBlock().findElement(NamedBy.xpath("//label[contains(text(), 'отчества')]/div")
+                .as("Чекбокс Нет отчества")).click();
     }
 
     public void openDropdown(String name) {
-        clickElement(By.xpath("//div[@class='jq-selectbox__select' and .//div[text()='" + name + "']]"));
+        clickElement(NamedBy.xpath("//div[@class='jq-selectbox__select' and .//div[text()='" + name + "']]")
+                .as("Селект Где вы желаете получать карту?"));
     }
 
     public void selectValueInDropDown(String name) {
-        clickElement(By.xpath("//li[contains(text(), '" + name + "')]"));
+        clickElement(NamedBy.xpath("//li[contains(text(), '" + name + "')]").as("Выбрать значение в " + name + " списке"));
     }
 
     public void choseMan() {
-        clickElement(By.cssSelector(".man"));
+        clickElement(NamedBy.css(".man").as("Радиобаттон Мужчина"));
     }
 
     public void choseWoman() {
-        clickElement(By.cssSelector(".girl"));
+        clickElement(NamedBy.css(".girl").as("Радиобаттон Женщина"));
     }
 
 
