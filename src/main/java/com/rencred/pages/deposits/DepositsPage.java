@@ -1,7 +1,8 @@
 package com.rencred.pages.deposits;
 
 import com.rencred.driver.HelpBase;
-import com.rencred.driver.allure.NamedBy;
+import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -12,24 +13,28 @@ public class DepositsPage extends HelpBase {
         super(wd);
     }
 
+    @Step()
     public WebElement sumOfDepositField() {
-        return inputField(NamedBy.css("[name='amount']").as("Поле Сумма вклада"));
+        return inputField(By.cssSelector("[name='amount']"));
     }
 
+    //Блок Калькулятора
     public WebElement calculatorBlock() {
-        return blockElement(NamedBy.css(".calculator__content").as("Блок Калькулятор"));
+        return blockElement(By.cssSelector(".calculator__content"));
     }
 
     public WebElement slider(String name) {
-        return sliderElement(NamedBy.xpath("//div[@class='calculator__slide-section' and .//label[text()='" + name + "']]").as("Сайдер " + name + ""));
+        return sliderElement(By.xpath("//div[@class='calculator__slide-section' and .//label[text()='" + name + "']]"));
     }
 
+    @Step("Двигаем слайдер \"{0}\"")
     public void getSliderAndMoveToPosition(String name, String value) {
-        slider(name).findElement(NamedBy.xpath("//*[contains(text(), '" + value + "')]").as("Сайдер " + name + "")).click();
+        slider(name).findElement(By.xpath("//*[contains(text(), '" + value + "')]")).click();
     }
 
+    @Step("Отмечаем чекбокс \"{0}\" ")
     public void selectOpenDeposit(String type) {
-        calculatorBlock().findElement(NamedBy.xpath("//*[contains(text(), '" + type + "')]").as("Чекбокс " + type + "")).click();
+        calculatorBlock().findElement(By.xpath("//*[contains(text(), '" + type + "')]")).click();
     }
 
 
