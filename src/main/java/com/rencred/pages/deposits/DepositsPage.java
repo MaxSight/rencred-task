@@ -13,12 +13,11 @@ public class DepositsPage extends HelpBase {
         super(wd);
     }
 
-    @Step()
+    @Step("Поле Сумма")
     public WebElement sumOfDepositField() {
         return inputField(By.cssSelector("[name='amount']"));
     }
 
-    //Блок Калькулятора
     public WebElement calculatorBlock() {
         return blockElement(By.cssSelector(".calculator__content"));
     }
