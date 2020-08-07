@@ -22,6 +22,10 @@ public class DepositsPage extends HelpBase {
         return blockElement(By.cssSelector(".calculator__content"));
     }
 
+    public WebElement calculatorResultBlock() {
+        return blockElement(By.cssSelector(".calculator__result-block"));
+    }
+
     public WebElement slider(String name) {
         return sliderElement(By.xpath("//div[@class='calculator__slide-section' and .//label[text()='" + name + "']]"));
     }
@@ -32,8 +36,18 @@ public class DepositsPage extends HelpBase {
     }
 
     @Step("Отмечаем чекбокс \"{0}\" ")
-    public void selectOpenDeposit(String type) {
-        calculatorBlock().findElement(By.xpath("//*[contains(text(), '" + type + "')]")).click();
+    public WebElement selectOpenDeposit(String type) {
+        return calculatorBlock().findElement(By.xpath("//*[contains(text(), '" + type + "')]"));
+    }
+
+    @Step("Начальная установленная сумма вклада")
+    public WebElement getStartDepositSum() {
+        return calculatorResultBlock().findElement(By.cssSelector("[class = 'js-calc-amount']"));
+    }
+
+    @Step("Срок вклада")
+    public WebElement getDepositPeriod() {
+        return calculatorBlock().findElement(By.cssSelector("[class = 'jq-selectbox__select-text']"));
     }
 
 

@@ -33,7 +33,7 @@ public class SecondTask_Test extends BaseTest {
     @Step("4) Выбрать чекбокс \"Нет отчества\" ")
     private void step4() {
         app.questionnareForCardPage().selectNoSecondName();
-        app.questionnareForCardPage().choseMan(); //todo без выбранного радиобаттона, перейти дальше невозможно
+        app.questionnareForCardPage().choseMan();
     }
 
     @Step("5) Выбрать значение из выпадающего списка \"Где вы желаете получить карту\"")

@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeTest;
 public class BaseTest {
 
     protected final ApplicationManager app = new ApplicationManager();
+    protected final FileSaver saver = new FileSaver();
 
     @BeforeTest
     public void setUp(){
