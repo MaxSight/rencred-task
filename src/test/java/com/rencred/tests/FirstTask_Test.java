@@ -45,8 +45,7 @@ public class FirstTask_Test extends BaseTest {
     private void step5() {
         app.depositPage().getSliderAndMoveToPosition("На срок", "13");
         Assert.assertTrue(app.depositPage().getDepositPeriod().getText().equals("13 месяцев"));
-        Assert.assertTrue(app.depositPage().getStartDepositSum().getText().equals("500 000"));
-    }
+        }
 
     @Step("6) Выгрузить Печатную Форму \"Общие условия по вкладам\" ")
     private void step6() throws IOException {
